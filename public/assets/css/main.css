@@ -1,0 +1,12 @@
+.col-lg-6 {
+    background-color: lightblue;
+}
+
+#addSection {
+    margin: 10px 0px 10px 0px;
+    background-color: coral;
+}
+
+.addBurgerButton {
+    vertical-align: center;
+}

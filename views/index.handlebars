@@ -1,38 +1,47 @@
-<h3>Eat Burgers Application</h3>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="text-center">Eat Burgers Application</h1>
+    </div>
+</div>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            {{#each burgers}}
-            {{#unless this.devoured}}
-            {{!-- <div>
-                <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-                    <button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
-                </form>
-            </div> --}}
-            <p>{{burger_name}} {{devoured}} <button type="button" class="btn btn-danger" info={{id}}>Devour!</button></p>
-            {{/unless}}
-            {{/each}}
+            <h3 class="text-center">Burgers Available!</h3>
+            <ul class="list-group-flush">
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <li class="list-group-item">
+                    <p>{{burger_name}}<button type="button" class="btn btn-danger float-right" info={{id}}>Devour!</button></p>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
         </div>
         <div class="col-lg-6">
-            {{#each burgers}}
-            {{#if this.devoured}}
-            <div class='burgerEaten'>
-                <div>
-                    {{this.burger_name}}
+            <h3 class="text-center">Burgers Eaten!</h3>
+            <ul class="list-group-flush">
+                {{#each burgers}}
+                {{#if this.devoured}}
+                <div class='burgerEaten'>
+                    <li class="list-group-item">
+                        {{this.burger_name}}
+                    </li>
                 </div>
-            </div>
-            {{/if}}
-            {{/each}}
+                {{/if}}
+                {{/each}}
+            </ul>
         </div>
     </div>
-    <h2>Add A Burger Option</h2>
 
-    <div class="row">
-        <div class="col-lg-12">
+    <div class="row justify-content-md-center" id="addSection">
+        <div class="col-lg-4">
+            <h2 class="text-center">Add A Burger Option</h2>
             <form id="add">
-                <input type="text" id="name" name="burger_name" placeholder="Add burger here!">
-                <button type="submit" class="addBurgerButton">Add The Burger</button>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" name="burger_name" placeholder="Add burger here!">
+                    <button type="submit" class="btn btn-primary addBurgerButton">Add The Burger</button>
+                </div>
             </form>
         </div>
     </div>
